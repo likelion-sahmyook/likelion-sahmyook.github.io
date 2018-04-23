@@ -1,5 +1,5 @@
 # 삼육대학교 멋쟁이사자처럼 6th
-[!https://likelionsahmyook.github.io](https://likelionsahmyook.github.io)
+[https://likelionsahmyook.github.io](https://likelionsahmyook.github.io)
 
     ,--.    ,--.,--.  . ,------.   ,--.    ,--. .-----. ,-.    ,-.
     '  |    |  ||  |,' ||  .---'   '  |    |  |' .---. '|  `.  | |
