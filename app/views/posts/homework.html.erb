@@ -1,0 +1,75 @@
+<!-- Navigation -->
+  <%= render 'nav' %>
+<!-- Page Content -->
+<div class="container">
+
+      <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+            <h1 class="title-custom">과제</h1>
+            <div class="lecture-link">
+              <a href="https://drive.google.com/drive/folders/1ok_34SGd4pBSC2_cCRSajiy1sOYvbdZA?usp=sharing" target="_blank">
+                <span class="social-link"><img class='widget-icon' src='/assets/google-drive'/>과제제출 드라이브</span>
+              </a>
+            </div>
+            <hr/>
+            <!--첫 포스트작성-->
+            <%= render 'nullpost' %>
+            
+          <% @posts.each do |post| %>
+            <% if post.category === '과제' %>
+              <a href="/posts/<%= post.id %>" class="card-con">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <!--etc 클래스를 붙여서 긴 제목이 ...으로 보이도록-->
+        
+                    <div class="card-title">
+                      <div class="card-cate" id="chome"><%= post.category %></div>
+                      <% if post.limit > Time.current %>
+                        <div class="card-cate" id="climit"><%= post.limit.strftime('%Y.%m.%d. %H:%M:%S')%> 까지</div>
+                      <% elsif %>
+                        <div class="card-cate" id="clect">기한 만료</div>
+                      <% end %>
+                      <h1 class="title etc"><%= post.title %></h1>
+                    </div>
+
+                  </div>
+                  <div class="card-footer text-muted">
+                    <%= post.user.nickname %> | <%= post.category %> | <%= post.created_at.strftime("%Y.%m.%d. %H:%M") %> | <%= "#{post.unique_impression_count}" %> 읽음
+                  </div>
+                </div>
+              </a>
+            <% end %>
+          <% end %>
+        
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+            <li>
+              <%= paginate @posts %>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+          <!-- Top-Widget -->
+            <%= render 'top-widget' %>
+            <hr/>
+          <!-- Categories Widget -->
+            <%= render 'cate-widget'%>
+            <hr/>
+          <!-- Side Widget -->
+            <%= render 'fb-widget' %><!--멋사페이스북 연동, 대시보드 활성 필요-->
+             
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+    
+<!-- Footer -->
+  <%= render 'footer' %>

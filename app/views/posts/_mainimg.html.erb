@@ -1,0 +1,11 @@
+<% @mainimg_1.each do |i| %>
+  <% if i.category === '대문' %>
+        <div class="card-body">
+          <p class="card-text" style="text-align: center;"><%= content_tag(:div, i.content.to_s.html_safe, :class => "panel-body-index") %></p>
+        </div>
+        
+        <div class="mainimg-text">
+          <%= i.created_at.strftime("%Y.%m") %> Likelion Sahmyookuniv
+        </div>
+  <% end %>
+<% end %>

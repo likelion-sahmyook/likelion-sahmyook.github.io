@@ -1,0 +1,6 @@
+<% if Post.count == 0 %>
+<div class="nullpost">
+  <h1>게시글이 없습니다!</h1>
+  <%= link_to "첫 번째 게시글 작성하기→", new_post_path %>
+</div>
+<% end %>

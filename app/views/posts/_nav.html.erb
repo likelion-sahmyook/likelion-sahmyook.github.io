@@ -1,0 +1,84 @@
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar"> <!--fixed-top 클래스 제거 -->
+      <div class="container">
+        <%= link_to(image_tag('/assets/logo1', class:"nav-logo"), posts_path, class:"navbar-brand custom-brand")%>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse custom-nav-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item signin">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-link btn-mutsa dropdown-toggle" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= current_user.nickname %>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-nickname">
+                      <%= current_user.email %>
+                    </div>
+                    <button class="dropdown-item" type="button">
+                      <%= link_to '마이페이지', edit_user_registration_path %>
+                    </button>
+                    <% if current_user.has_role? 'admin'%>
+                    <button class="dropdown-item" type="button">
+                      <%= link_to '관리자', rails_admin_path %>
+                    </button>
+                    <% end %>
+                    
+                    <% if current_user.has_role? 'admin'%>
+                    <button class="dropdown-item" type="button">
+                      <%= link_to '새 글 작성', new_post_path %>
+                    </button>
+                    <% elsif current_user.has_role? 'member' %>
+                    <button class="dropdown-item" type="button">
+                      <%= link_to '새 글 작성', new_post_path %>
+                    </button>
+                    <% end %>
+                    <button class="dropdown-item" type="button">
+                      <%= link_to '로그아웃', destroy_user_session_path, method: 'delete' %>
+                    </button>
+                  </div>
+                </div>
+              </li>
+              <% else %>
+              <li class="nav-item" >
+                <%= link_to '로그인', new_user_session_path, class:"nav-link sign" %>
+              </li>
+            <% end %>
+            <li class="nav-item" data-nav-url='/posts'>
+              <%= link_to "메인", posts_path, class:"nav-link" %>
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item" data-nav-url='/notice'>
+              <%= link_to "공지", notice_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item" data-nav-url='/homework'>
+              <%= link_to "과제", homework_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item" data-nav-url='/lecture'>
+              <%= link_to "수업자료", lecture_path, class:"nav-link" %>
+            </li>
+          </ul>
+        </div>
+        
+        <script>
+          /* link active set up*/
+          $(function(){
+            // 페이지가 로드될때마다 이 구역이 실행됨.
+            let _pathname = location.pathname;
+            let _navItems = $('.navbar-nav').find('.nav-item');
+            for(let i = 0 ; i < _navItems.length ; i++){
+              let _currentItem = _navItems.eq(i);
+              if(_currentItem.attr('data-nav-url') === _pathname){
+                _currentItem.addClass('active');
+              }
+              else{
+                _currentItem.removeClass('active');
+              }
+            }
+          });
+        </script>
+      </div>
+    </nav>

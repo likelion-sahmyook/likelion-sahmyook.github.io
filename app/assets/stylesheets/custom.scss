@@ -1,0 +1,773 @@
+@import 'bootstrap';
+
+/*= require bootstrap-datepicker
+
+
+/* FONT */
+
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+* { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+
+
+
+
+/* PAGE */
+
+body {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0px auto;
+}
+
+@media (min-width: 992px) {
+  body {
+    // padding-top: 56px;
+  }
+}
+
+// p {
+//   font-size: 15px !important;
+// }
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #0652DD !important;
+  background-color: transparent !important;
+}
+.time {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  color: #6e747b;
+}
+.title-custom{
+  font-size: 30px!important; font-weight: 300;
+  padding-left: 15px;
+  margin: 15px 0px 10px 0px;
+}
+/* LOGO 이미지 */
+
+.logo {
+  width: 250px;
+  margin: 50px auto 0px auto;
+  display: block;
+}
+
+/* NAVI */
+
+.nav-logo {
+  width: 200px; margin: 20px 5px 20px 5px;
+}
+
+.custom-navbar {
+  border-bottom: 1px solid #dfe2e6;
+}
+
+.navbar-toggler {
+  border-radius: 1px;
+}
+  
+
+  //nav, link
+  a.nav-link {
+      color: black;
+      font-size: 17px;
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: black;
+  }
+  
+  /*현재 페이지 표기용*/
+  .nav-item.active .nav-link {
+    color : black;
+    font-weight: 550;
+  }
+  
+  .nav-item .sign {
+    border-right: 1px solid #dfe2e6;
+  }
+  
+  .nav-item.signin {
+    line-height: 24px;
+  }
+  
+  /* 로그인 시, 계정 글자 커스텀 */
+  .btn-mutsa {
+    padding-left: 0 !important;
+    color: black;
+    font-weight: normal!important;
+  }
+  
+  .btn-mutsa:hover {
+    color: #0652DD;
+  }
+  
+  .dropdown-menu {
+    border-radius: 0px;
+    text-align: center;
+  }
+  
+  .btn .btn-mutsa .dropdown-toggle button {
+    border-right: 1px solid #dfe2e6!important;
+    padding: 0.200rem 0.75rem!important;
+  }
+  
+  .dropdown-nickname {
+    color: #c2c0c2; font-size: 13px;
+    background-color: white;
+    border-bottom: 1px solid #dfe2e6;
+    padding-bottom: 4px;
+    margin: 0px 6px;
+  }
+
+/* BTN */
+
+.btn-primary {
+    color: white;
+    background-color: #6d747c;
+    border-color: black;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn.btn-primary {
+  width: 92px;
+}
+
+.btn.btn-primary:hover {
+  color: #0652DD;
+  background-color: transparent;
+}
+
+a.btn.btn-primary:visited {
+  color: white;
+}
+
+/* INDEX PAGE */
+//notice
+.nullpost {
+  margin: 30% auto;
+  text-align: center; font-weight: 300;
+  font-size: 20px
+}
+.notice ul {
+  margin: 15px auto 0px auto;
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+.notice h4 {
+  font-size: 16px!important; 
+  // font-weight: bold;
+  color: #0652DD;
+  padding-top: 3px;
+}
+.notice-icon {
+  width: 16px;
+  margin: 0px 3px;
+  padding-bottom: 4px;
+}
+.notice h4:hover {
+  filter:grayscale(100%);
+}
+//card
+.card.mb-4 {
+  border-radius: 0px;
+}
+.card-img-top {
+  border-radius: 0px;
+}
+.post_btn_con  {
+  width: 100%; height: 38px;
+  margin: 25px 0px 10px 0px;
+}
+.btn.btn-primary.post {
+  float: right;
+}
+.card-con:hover {
+  background-color: rgba( 255, 255, 255, 0);
+  color: black !important;
+}
+.card-cate {
+  background-color: white;
+  color: #9c9da7;
+  display: inline-block;
+  font-size: 12px;
+  padding: 3px 7px;
+  border: 1px #c8c9ce solid;
+}
+#chome {
+  background-color: #73d8b2;
+  color: white;
+  border: 0px;
+}
+
+#cnoti {
+  background-color: #0652DD;
+  color: white;
+  border: 0px;
+}
+
+#clect {
+  color: black;
+  background-color: #dedfdf;
+  border: 0px;
+}
+#climit {
+  background-color: #ef8174;//#5d656f;//#ef8174;
+  color: white;
+  border: 0px;
+}
+
+.title {
+  font-size: 25px!important;
+  padding-top: 10px;
+}
+.card-body {
+  padding: 0px;
+}
+// .card-footer .text-muted {
+//   font-size: 15px;
+// }
+
+.card-body p {
+  font-size: 0px!important; margin: 0px auto;
+ //이미지 중앙정렬
+  display: block;
+  margin-left : auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.card-body h1, h2, h3, h4, h5, h6, pre {
+  font-size: 0px; margin: 0px auto;
+}
+  
+.card-title {
+  padding: 20px 20px 20px 20px;
+  margin-bottom: 0px;
+  font-size: 30px!important; //font-weight: bold;
+  //글자 중앙정렬
+  text-align : left;
+}
+
+.card-footer {
+  background-color: #f5f7f9;
+}
+.card.mb-4:hover {
+  .card-title { background-color: #f5f7f9; }
+  .card-footer { background-color: #f5f7f9; }
+}
+
+  //업로드 이미지 사이즈
+  .panel-body img{
+      max-width : 100%;
+      max-height : 100%;
+      // display: block;
+  }
+  .panel-body-index img{
+      max-width : 100%;
+      max-height : 300px;
+      padding: 0px auto;
+      // display: block;
+  }
+  .panel-body-index {
+    background-color: white;
+  }
+
+  //대문이미지
+ .mainimg-text {
+   font-size: 12px; color: #d8d8d8;
+   text-align: right;
+   margin-bottom: 20px;
+   font-family: 'Montserrat', sans-serif;
+ }
+/* NEW PAGE */
+#post_category {
+  width: 100%; height: 40px;
+  border: 1px solid #bebebe; border-radius: 2px;
+  box-shadow: 0px 1px 2px lightgray;
+}
+
+.field input {
+  width: 100%;
+  height: 40px;
+  padding: 0px 7px;
+  border: 1px solid #bebebe;
+  box-shadow: 0px 1px 2px lightgray;
+}
+
+.field input:focus {
+  outline:none;
+}
+
+label {
+  font-size: 16px;
+  margin: 20px 0px 15px 0px;
+  display: inline-block !important;
+}
+
+.label-star {
+  color: #0652DD;
+  font-weight: bold; font-size: 17px;
+  margin-left: 3px;
+}
+.title-star {
+  color: #0652DD;
+  font-weight: bold; font-size: 27px;
+  margin-left: 3px;
+}
+#post_limit_1i {
+  height: 40px;
+  box-shadow: 0px 1px 2px lightgray;
+}
+#post_limit_2i {
+  height: 40px;
+  box-shadow: 0px 1px 2px lightgray;
+}
+#post_limit_3i {
+  height: 40px;
+  box-shadow: 0px 1px 2px lightgray;
+}
+#post_limit_4i {
+  height: 40px;
+  box-shadow: 0px 1px 2px lightgray;
+}
+#post_limit_5i {
+  height: 40px;
+  box-shadow: 0px 1px 2px lightgray;
+}
+
+  // New page btn
+    .new_btn_con_con {
+      width: 100%; height: 38px;
+    }
+    .new_btn_con {
+      margin: 30px auto;
+      width: 196px;
+    }
+    .new_btn {
+      width: 196px;
+      float: left;
+    }
+    
+    .btn.btn-primary.new {
+      margin: 0px 2px;
+    }
+    
+    .btn.btn-primary.new:hover {
+      color: #0652DD;
+      background-color: transparent;
+    }
+
+/* SHOW PAGE */
+.mt-4 {
+  font-size: 30px; font-weight: 400;
+}
+.show_content {
+  padding: 20px 10px;
+}
+.show_content p {
+  font-size: 17px;
+}
+.show_link_con {
+  height: 5px;
+  width: 100%;
+}
+.show_link {
+  float: right;
+  font-size: 15px;
+}
+
+.show_link a{
+  color: black!important;
+  text-decoration: underline;
+  margin: 0px 3px;
+}
+.show_link a:hover{
+  color: #0652DD!important;
+}
+
+
+.card.my-4 {
+  border: none;
+}
+
+.btn.btn-primary.show {
+  
+  margin: 0px 3px;
+}
+
+.author .btn .btn-github{
+  width: 200px;
+  height: 41px;
+  display: block;
+  font-weight: lighter!important;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.author {
+  margin: 40px 0px 20px 0px;
+}
+.author h4{
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.author h5{
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 15px;
+}
+.author .nik{
+  color: #0652DD;
+}
+
+.author a{
+  color: white!important;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #333333!important;
+  
+}
+
+.author a:hover{
+  background-color: #333333!important;
+}
+/* LECTURE PAGE */
+.lecture-link {
+  width: 100%; height: 35px;
+  display: inline;
+  padding-left: 15px;
+}
+.lecture-link span {
+  color: #0652DD; font-size: 14px;
+}
+
+.lecture-link span:hover {
+  filter:grayscale(100%);
+  color: #666666;
+  text-decoration: underline;
+}
+/* LIST PAGE */
+
+.list-box {
+  margin-bottom: 30px;
+}
+
+.list-day h4{
+  font-weight: bolder;
+  color: #0652DD;
+  font-size: 20px;
+}
+
+.list {
+  margin: 10px auto;
+}
+.list-title h5 {
+  display: inline-block;
+  margin-right: 18px;
+  font-size: 18px; font-weight: bolder;
+  
+}
+.list-info {
+  font-size: 13px;
+  color: #7f7f7f;
+}
+/* FB-WIDGET 페이스북 위젯 */
+
+.fb-con {
+  width: 303px;
+  margin: 0px auto;
+}
+.fb-btnbox {
+  width: 136px;
+  margin: 8px auto 20px auto;
+}
+.fb-btn {
+  display: inline-block;
+  margin: 0px auto;
+}
+
+/* TOP-WIDGET 상단 위젯 */
+.widget-title {
+  margin-bottom: 17px; //font-weight: bold;
+  font-size: 20px;
+}
+.card.my-4 {
+  margin-top: 0px;
+}
+.widget-link {
+  width: 100%; height: 35px;
+}
+.widget-link span {
+  color: #0652DD; font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+#rule span {
+  font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+  font-weight: 400!important;
+}
+
+.widget-link span:hover {
+  filter:grayscale(100%);
+  color: #666666;
+}
+
+.widget-icon {
+  width: 16px;
+  margin: 0px 6px 0px 3px;
+  padding-bottom: 5px;
+}
+
+
+/* CATEGORIES 카테고리 위젯 */
+
+ul {
+  padding: 0px 15px 0px 20px;
+}
+li h4{
+  font-size: 15px; color: #333333;
+  margin: 5px 0px;
+}
+
+.cate-info {
+  font-size: 12px;
+  color: #7f7f7f;
+}
+/* NOTICE 위젯 */
+.new-icon {
+  background-color: #ec4532;
+  font-size: 8px; color : white; font-weight: 500;
+  padding: 0px 2px 1px 3px;
+  margin-bottom: 2px;
+  top: 2px;
+}
+
+/* FOOTER */
+.py-5.footer {
+  height: 100% ;
+  padding: 0px ;
+}
+
+.fsns-box {
+  display: inline-block;
+  padding-left: 10px;
+}
+
+.footer .sns{
+  height:50px;
+}
+
+.footer .sns-link {
+  width : 40px;
+  height : 40px;
+  display: inline-block;
+  margin: 0px 5px;
+}
+
+.footer .sns-link .sns-icon {
+  transition: 0.3s ease-out;
+  width : 30px;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  -webkit-filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.4));
+    filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.4));
+}
+
+.footer .sns-link .sns-icon:hover{
+  transform: scale(1.15);
+  transition: 0.3s;
+}
+
+footer p {
+  font-size: 13px!important;
+  padding: 3px 0px;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+.footer-box {
+  display: block;
+}
+
+.copy-icon {
+  width: 14px; fill: #333333;
+}
+
+/* DEVISE */
+
+  .d_main {
+    width: 100%;
+    max-width: 460px;
+    margin: 0px auto 50px auto;
+    text-align: center;
+  }
+  .form-inputs {
+    margin: 20px;
+  }
+  .form-actions {
+    margin: 20px;
+  }
+  .d_inputbox {
+    max-width: 455px!important;
+    width: auto;
+    margin: 50px auto 0px auto;
+  }
+  
+  .d_inputbox abbr {
+    font-size: 0px;
+  }
+  .d_inputbox input {
+    width: 100%!important;
+    height: 45px;
+    border: 1px solid #dfe2e6;
+    border-radius: 2px;
+    margin: 0px auto;
+    padding: 0px 10px;
+    
+  }
+  .d_inputbox input:focus {
+    outline:none;
+  }
+  
+  .d_inputbox .field_with_errors {
+    width: 100%;
+    background-color: white;
+    color: #0652DD; font-weight: bold;
+  }
+  // 라벨
+  .d_inputbox label {
+    display: block!important;
+    text-align: left;
+    font-size: 16px;
+    margin: 30px 0px 10px 0px;
+    color: black;
+  }
+  .d_rememberbox {
+    max-width: 130px;
+    margin: 5px 0px 5px 64%;
+    color: black;
+    float: right;
+  }
+  .d_rememberbox fieldset {
+    border:none;
+  }
+  .d_rememberbox input {
+    border-radius: 1px;
+    border: 1px solid #4a5056;
+  }
+  
+  //가입창
+  .d_alert {
+    position:relative; left:70px;
+    width:400px;
+    display:block;
+    text-align: center;
+    margin: 5px auto;
+  }
+  
+  //비밀번호찾기
+  .new-btn {
+    color: white;
+    background-color: #6d747c;
+    border-color: black;
+    width: 150px;
+  }
+
+  .new-btn:hover {
+    color: #0652DD;
+    background-color: transparent;
+    border: 1px solid #0652DD;
+  }
+
+  .new-btn:visited {
+    color: white;
+  }
+  
+  .new-btn {
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  //마이페이지
+  input:disabled {
+    background-color: #f8f9fa;
+  }
+  .role {
+    color: #0652DD;
+  }
+ 
+  //링크
+  .d_link {
+    font-size:15px;
+    text-decoration: underline;
+    line-height: 1.6;
+  }
+ 
+  //로고
+  .d_logoimg {
+    display: block;
+    margin:50px auto;
+    max-width:200px;
+  }
+  
+  .cate_select {
+    width: 100%;
+  }
+  
+/* PAGENATION */
+.pagination {
+  padding-right: 0px;
+}
+
+// 끊김 현상 때문에 적용 불가
+// @media screen and (max-width: 990px) {
+//   .custom-nav-collapse {
+//     position: absolute;
+//     background-color: #fff;
+//     top: 117px;
+//     left: 0px;
+//     right: 0px;
+//     padding: 15px;
+//     border-bottom: 1px solid #e5e5e5;
+//     z-index: 100;
+//   }
+// }

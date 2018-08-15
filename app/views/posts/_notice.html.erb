@@ -1,0 +1,13 @@
+<% @notice_1.each do |noti| %>
+  <% if noti.category === '공지사항' %>
+    <a href="/posts/<%= noti.id %>">
+      <div class="notice">
+        <!--etc 클래스를 붙여서 긴 제목이 ...으로 보이도록-->
+        <ul>
+          <li><h4><img class='notice-icon' src='/assets/notice'/> <%= noti.title %> <span class="new-icon">NEW!</span></h4></li>
+        </ul>
+      </div>
+    </a>
+    <hr/>
+  <% end %>
+<% end %>

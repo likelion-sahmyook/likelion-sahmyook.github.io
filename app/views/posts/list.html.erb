@@ -1,0 +1,72 @@
+<!-- Navigation -->
+  <%= render 'nav' %>
+<!-- Page Content -->
+  <div class="container">
+
+      <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-lg-8">
+          <div class="mt-4">
+            <div class="list-box">
+            <% @posts.each do |post| %>
+              <div class="list">
+                <!--do 구문이 하나하나씩 자동으로 빼오기 때문에 중복되는 걸 어떻게 빼줘야할 지 모르겠음.-->
+                <!--포스트 날짜월 형변환-->
+                <%# pym = post.created_at.strftime("%Y%m").to_i %>
+                                  <!--<div class="display-4"><strong><!-- post.created_at.strftime("%Y %b").to_s --></strong></div>-->
+                <%# if pym == 201808 %>
+                <%# end %>
+                 <% case post.created_at.strftime("%Y %b") %>
+                 <% when "2018 Aug" %>
+                 <!-- break if post.created_at.strftime("%Y %b") == "2018 Aug" -->
+                   <div>hello aug</div>
+                 <% when "2018 Jul" %>
+                   <div>hello jul</div>
+                 <% else "아직 날짜가 정해지지 않았습니다." %>
+                   <div>hello ?</div>
+                 <% end %> 
+                  <a href="/posts/<%= post.id %>" class="card-con">
+                    <span class="list-title"><h5><%= post.title %></h5></span>
+                    <span class="list-info"><%= post.user.nickname %> | <%= post.category %> | <%= post.created_at.strftime("%Y %b %d") %></span>
+                  </a>
+              </div>
+            <% end %>
+          </div>
+        </div>
+          <!--검색-->
+          <%#= form_tag list_path, :method => :get do %>
+            <%#= text_field_tag :search, params[:search] %>
+            <%#= submit_tag "검색", :name => nil, class:"btn btn-primary" %>
+            <%# end %>
+        
+          
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+          <!-- Top-Widget -->
+            <%= render 'top-widget' %>
+            <hr/>
+          <!-- Categories Widget -->
+            <%= render 'cate-widget'%>
+            <hr/>
+          <!-- Side Widget -->
+            <%= render 'fb-widget' %><!--멋사페이스북 연동, 대시보드 활성 필요-->
+          
+          <!-- Pagination -->
+            <ul class="pagination justify-content-center mb-4">
+              <li>
+                <%#= paginate @posts %>
+              </li>
+              
+            </ul>
+          
+        </div>
+      <!-- /.row -->
+      </div>
+    <!-- /.container -->    
+    </div>
+      
+
+    
+    
+<!-- Footer -->
+  <%= render 'footer' %>

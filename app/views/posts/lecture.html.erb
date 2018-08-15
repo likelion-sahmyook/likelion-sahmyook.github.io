@@ -1,0 +1,70 @@
+<!-- Navigation -->
+  <%= render 'nav' %>
+<!-- Page Content -->
+<div class="container">
+
+      <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+            <h1 class="title-custom">수업 자료</h1>
+            <div class="lecture-link">
+              <a href="https://drive.google.com/drive/folders/1j__4jViRwdco44j83WprKLD5suIUNBiT?usp=sharing" target="_blank">
+                <span class="social-link"><img class='widget-icon' src='/assets/google-drive'/>수업자료 드라이브</span>
+              </a>
+            </div>
+            <hr/>
+            <!--첫 포스트작성-->
+            <%= render 'nullpost' %>
+            
+          <% @posts.each do |post| %>
+            <% if post.category === '수업자료' %>
+              <a href="/posts/<%= post.id %>" class="card-con">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <!--etc 클래스를 붙여서 긴 제목이 ...으로 보이도록-->
+        
+                    <div class="card-title">
+                      <div class="card-cate" id="clect"><%= post.category %></div>
+                      <h1 class="title etc"><%= post.title %></h1>
+                    </div>
+
+                  </div>
+                  <div class="card-footer text-muted">
+                    <%= post.user.nickname %> | <%= post.category %> | <%= post.created_at.strftime("%Y.%m.%d. %H:%M") %> | <%= "#{post.unique_impression_count}" %> 읽음
+                  </div>
+                </div>
+              </a>
+            <% end %>
+          <% end %>
+        
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+            <li>
+              <%= paginate @posts %>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+          <!-- Top-Widget -->
+            <%= render 'top-widget' %>
+            <hr/>
+          <!-- Categories Widget -->
+            <%= render 'cate-widget'%>
+            <hr/>
+          <!-- Side Widget -->
+            <%= render 'fb-widget' %><!--멋사페이스북 연동, 대시보드 활성 필요-->
+             
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+    
+<!-- Footer -->
+  <%= render 'footer' %>

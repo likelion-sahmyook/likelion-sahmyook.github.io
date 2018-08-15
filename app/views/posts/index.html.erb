@@ -1,0 +1,52 @@
+<!--Project remain task-->
+  <script>
+    alert("이 alert의 위치는 app/views/layouts/application.html.erb입니다.\n\n" + 
+    "## Project 남은 과제 ##\n\n" + 
+    "1. 외향 다듬기\n" + 
+    "2. 대문이미지 첫 페이지에만 나오게\n"+
+    "3. Git push(삼육 계정 연결, 도메인 연결)")
+  </script>
+  
+<!-- layouts/application.html.erb에서 html, head 코드를 포함하니깐 포함시키지 않아도 됨 -->
+    <!-- Navigation -->
+      <%= render 'nav' %>
+    <!-- Page Content -->
+      <%= render 'content' %>
+    <!-- Footer -->
+      <%= render 'footer' %>
+<!-- 검색 -->
+<!--<%#= form_tag search_posts_path, :method => :get do %>-->
+<!--<%#= text_field_tag :query, params[:query] %> <%= submit_tag "Search!" %>-->
+<!--<%# end %>-->
+
+
+<!--스캐폴드 코드-->
+<!--<p id="notice"><%#= notice %></p>-->
+
+<!--<h1>Posts</h1>-->
+
+<!--<table>-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th>Title</th>-->
+<!--      <th>Content</th>-->
+<!--      <th colspan="3"></th>-->
+<!--    </tr>-->
+<!--  </thead>-->
+
+<!--  <tbody>-->
+<!--    <%# @posts.each do |post| %>-->
+<!--      <tr>-->
+<!--        <td><%#= post.title %></td>-->
+<!--        <td><%#= post.content %></td>-->
+<!--        <td><%#= link_to 'Show', post %></td>-->
+<!--        <td><%#= link_to 'Edit', edit_post_path(post) %></td>-->
+<!--        <td><%#= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+<!--      </tr>-->
+<!--    <%# end %>-->
+<!--  </tbody>-->
+<!--</table>-->
+
+<!--<br>-->
+
+<!--<%#= link_to 'New Post', new_post_path %>-->

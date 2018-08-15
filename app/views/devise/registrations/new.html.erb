@@ -1,0 +1,54 @@
+<%= render '/posts/logo' %>
+<div class="d_main">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+
+  <div class="d_inputbox">
+    <div class="form-inputs">
+      <%= f.input :email, required: true, autofocus: true, label:'이메일', maxlength: "30" %>
+      <%= f.input :password, required: true, label: '비밀번호', hint: ("#{@minimum_password_length} 글자 이상을 입력해주세요." if @minimum_password_length) %>
+      <%= f.input :password_confirmation, required: true, label: '비밀번호 확인' %>
+      <%= f.label "이름" %>
+      <%= f.text_field :name, :required => true, maxlength: "5"%>
+      <%= f.label "휴대전화" %>
+      <%= f.text_field :phone, :required => true, placeholder: "- 없이 11자 입력", maxlength: "11"%>
+      <%= f.label "닉네임" %>
+      <%= f.text_field :nickname, :required => true, placeholder: "ex) 멋사 두희", maxlength: "10"%>
+      <%= f.label "Github 주소" %>
+      <%= f.text_field :gitlink, placeholder: "https://github.com/아이디" %>
+      <%#= f.label "가입코드" %>
+      <%#= f.text_field :signkey, :required => true, maxlength: "5"%>
+      <!--<span>가입을 원할시 운영진에게 문의하세요.</span><span class="label-star">*</span>-->
+    </div>
+  </div>
+  <%= f.error_notification %>
+
+  <div class="d_button">
+    <div class="form-actions">
+      <%= f.button :submit, "회원가입", class:"btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
+
+  <%= link_to '뒤로가기', :back, class: "d_link" %>
+</div>
+<%= render '/posts/footer' %>
+
+
+<!--<h2>Sign up</h2>-->
+
+<!--<%#= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>-->
+<!--  <%#= f.error_notification %>-->
+
+<!--  <div class="form-inputs">-->
+<!--    <%#= f.input :email, required: true, autofocus: true %>-->
+<!--    <%#= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>-->
+<!--    <%#= f.input :password_confirmation, required: true %>-->
+<!--  </div>-->
+
+<!--  <div class="form-actions">-->
+<!--    <%#= f.button :submit, "Sign up" %>-->
+<!--  </div>-->
+<!--<%# end %>-->
+
+<!--<%#= render "devise/shared/links" %>-->

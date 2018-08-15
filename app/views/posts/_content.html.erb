@@ -1,0 +1,84 @@
+<div class="container">
+
+      <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+          
+          <!--공지 위젯-->
+          <%= render 'notice' %>
+          
+          <!--대문사진-->
+          <%= render 'mainimg' %>
+          <%# if request.path.match? ('/posts') %>
+          <%#= render 'mainimg' %>
+          <%# end %>
+          
+          <!--첫 포스트작성-->
+          <%= render 'nullpost' %>
+          
+          <!-- Blog Post -->
+          <% @posts.each do |post| %>
+          <a href="/posts/<%= post.id %>" class="card-con">
+            <div class="card mb-4">
+              <div class="card-body">
+                <!--img 미리보기 이미지 주석처리-->
+                <!--<p class="card-text" style="text-align: center;"><%#= content_tag(:div, post.content.to_s.html_safe, :class => "panel-body-index") %></p>-->
+                <!--etc 클래스를 붙여서 긴 제목이 ...으로 보이도록-->
+                <div class="card-title">
+                  <% if post.category === '수업자료' %>
+                  <div class="card-cate" id="clect"><%= post.category %></div>
+                  <% elsif post.category === '대문' %>
+                  <div class="card-cate"><%= post.category %></div>
+                  <% elsif post.category === '과제' %>
+                  <div class="card-cate" id="chome"><%= post.category %></div>
+                    <% if post.limit > Time.current %>
+                      <div class="card-cate" id="climit"><%= post.limit.strftime('%Y.%m.%d. %H:%M:%S') %> 까지</div>
+                    <% elsif %>
+                      <div class="card-cate" id="clect">기한 만료</div>
+                    <% end %>
+                  <% elsif post.category === '공지사항' %>
+                  <div class="card-cate" id="cnoti"><%= post.category %></div>
+                  <% else %>
+                  <div class="card-cate"><%= post.category %></div>
+                  <% end %>
+                  <h1 class="title etc"><%= post.title %></h1>
+                </div>
+              </div>
+              
+              <div class="card-footer text-muted">
+                <%= post.user.nickname %> | <%= post.created_at.strftime("%Y.%m.%d. %H:%M") %> | <%= "#{post.unique_impression_count}" %> 읽음
+              </div>
+            </div>
+          </a>
+          <% end %>
+          
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+            <li>
+              <%= paginate @posts %>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+          <!-- Top-Widget -->
+          <%= render 'top-widget' %>
+          <hr/>
+          
+          <!-- Categories Widget -->
+          <%= render 'cate-widget'%>
+          <hr/>
+          
+          <!-- Fb Widget -->
+          <%= render 'fb-widget' %>
+             
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->

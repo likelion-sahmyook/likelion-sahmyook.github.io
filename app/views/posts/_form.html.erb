@@ -1,0 +1,65 @@
+<div class="container">
+<%= form_for(post) do |f| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <div class="row">
+    <% if current_user.has_role? 'admin'%>
+      <div class="col-md-12"> 
+        <div class="field">
+          <%= f.label :제목 %><span class="label-star">*</span>
+          <%= f.text_field :title, required: true, maxlength: "40" %>   
+          <!--인라인 스타일태그 전부 custom.scss로 이동 시켰습니다. 인라인보다는 외부 시트 이용해주세용-->
+        </div>
+      </div>
+      <div class="col-md-2">
+        <%= f.label :카테고리 %><span class="label-star">*</span>
+        <br>
+        <%= f.select :category, options_for_select(['공지사항', '수업자료', '과제', '대문', '일반'], post), class:"select-box" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :과제기한 %><span class="label-star">*</span>
+        <br>
+        <%= f.datetime_select :limit, 'data-behaviour' => 'datepicker', class:"datepicker" %>
+      </div>
+    <% elsif current_user.has_role? 'member'%>
+      <div class="col-md-2">
+        <%= f.label :카테고리 %><span class="label-star">*</span>
+        <br>
+        <%= f.select :category, options_for_select(['포스트'], post), class:"select-box" %>
+      </div>
+      <div class="col-md-10"> 
+        <div class="field">
+          <%= f.label :제목 %><span class="label-star">*</span>
+          <%= f.text_field :title, required: true, maxlength: "40" %>   
+        </div>
+      </div>
+    <% end %>
+   </div>
+  
+  <!--tinymce 잼 -->
+  <div class="form-group">
+    <%= tinymce %>
+    <%= f.label :내용, class: "label2" %><span class="label-star">*</span>
+    <%= f.text_area :content, :rows => 20, class: "form-control tinymce" %>
+  </div>
+  
+  <div class="new_btn_con_con">
+    <div class="new_btn_con">
+      <div class="new_btn">
+       <%= link_to '취소', posts_path, class: "btn btn-primary new" %>
+       <%= f.submit value="작성", class:'btn btn-primary new' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>

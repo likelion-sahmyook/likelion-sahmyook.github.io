@@ -1,0 +1,96 @@
+    <!-- Navigation -->
+    <%= render 'nav' %>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
+
+          <!-- Title -->
+          <h1 class="mt-4"><%= @post.title %></h1>
+          
+          <!-- Date/Time -->
+          <p class="time"><%= @post.user.nickname %> | <%= @post.category %> | <%= @post.created_at.strftime("%Y.%m.%d. %H:%M") %> | <%= "#{@post.unique_impression_count}" %> 읽음</p>
+          <!--"%Y.%m.%d. %H:%M 년.월.일. 시간:분-->
+          <% if @post.category === '과제' %>
+            <% if @post.limit > Time.current %>
+              <div class="card-cate" id="climit">제출기한 : <%= @post.limit.strftime('%Y.%m.%d. %H:%M:%S') %> 까지</div>
+            <% elsif %>
+              <div class="card-cate" id="clect">제출기한 : <strike><%= @post.limit.strftime('%Y.%m.%d. %H:%M:%S') %></strike> 까지</div>
+            <% end %>
+          <% end %>
+          <hr>
+          
+          <!-- Post Content -->
+          <div class="show_content">  
+            <p><%= content_tag(:div, @post.content.html_safe, :class => "panel-body") %></p>
+          </div>
+          <hr/>
+          
+          <!-- Author -->
+          <div class="author">
+            <h4>작성자</h4>
+            <h5> 
+              <% if @post.user.has_role? 'admin'%>
+                삼육멋사 운영진
+              <% elsif @post.user.has_role? 'member'%>
+                삼육멋사 아기사자
+              <% end %>
+              <!--written by-->
+              <span class="nik"><%= @post.user.name %><span>.
+            </h5>
+            <a href="<%= @post.user.gitlink %>" target="_blank" class="btn btn-github"><span><img class='widget-icon' src='/assets/github-logo-w'/></span> Github Page 방문하기 →</a>
+          </div>
+          
+          <!-- 삭제, 수정 -->
+          <div class="show_link_con">
+            <div class="show_link">
+              <% if user_signed_in? %>
+                <% if @post.user == current_user %>
+                  <%= link_to '수정', edit_post_path(@post) %> 
+                  <%= link_to '삭제', @post, method: :delete, data: { confirm: '게시글을 삭제하시겠습니까?' } %> 
+                <% elsif current_user.has_role? 'admin'%>
+                  <%= link_to '수정', edit_post_path(@post) %> 
+                  <%= link_to '삭제', @post, method: :delete, data: { confirm: '게시글을 삭제하시겠습니까?' } %> 
+                <% end %>
+                <%= link_to '뒤로', :back %>
+              <% else %>
+                <%= link_to '뒤로', :back %>
+              <% end %>  
+            </div>
+          </div>
+
+          <!-- Comments Form -->
+          <div class="card my-4">
+          <hr/>
+          <%= render 'disqus' %> 
+          </div>
+        </div>
+
+          <!-- Sidebar Widgets Column -->
+          <div class="col-md-4">
+            
+          <!-- Top-Widget -->
+          <%= render 'top-widget' %>
+          <hr/>
+          
+          <!-- Categories Widget -->
+          <%= render 'cate-widget'%>
+          <hr/>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <%= render 'footer' %>
+
+
+

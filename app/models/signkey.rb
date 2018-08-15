@@ -1,0 +1,2 @@
+class Signkey < ApplicationRecord
+end

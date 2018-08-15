@@ -1,0 +1,16 @@
+<div class="card my-4">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-12">
+        <h5 class="widget-title">최근 글</h5>
+        <ul class="list-styled mb-0">
+          <% @categories_10.each do |cate| %>
+            <li>
+            <a href="/posts/<%= cate.id %>"><h4 class="etc"><%= cate.title %></h4><span class="cate-info"><%= cate.user.nickname %> | <%= cate.category %> | <%= cate.created_at.strftime("%Y.%m.%d. %H:%M") %></span></a> 
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
