@@ -1,4 +1,4 @@
-# 삼육대학교 멋쟁이사자처럼 6th
+# 삼육대학교 멋쟁이사자처럼
 [https://likelion-sahmyook.github.io/](https://likelion-sahmyook.github.io/)
 
     ,--.    ,--.,--.  ..,------.   ,--.    ,--. .-----. ,-.    ,-.
