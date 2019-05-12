@@ -34,6 +34,10 @@
 
  https://www.facebook.com/likelionsahmyook/
  
+- 인스타그램
+
+ https://www.instagram.com/likelion_syu/
+ 
 - 회칙
 
  https://github.com/likelion-sahmyook/likelion-sahmyook.github.io/wiki/%EB%A9%8B%EC%9F%81%EC%9D%B4-%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC-at-%EC%82%BC%EC%9C%A1%EB%8C%80%ED%95%99%EA%B5%90-%ED%9A%8C%EC%B9%99
